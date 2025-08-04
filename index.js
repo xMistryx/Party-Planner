@@ -65,14 +65,21 @@ function EventDetails() {
   const $h3 = document.createElement("h3");
   const $figure = document.createElement("figure");
   const $img = document.createElement("img");
+  const $date = document.createElement("p"); 
+  const $location = document.createElement("p");
   const $p = document.createElement("p");
   $section.classList.add("event");
   $h3.textContent = `${selectedEvent.name} #${selectedEvent.id}`;
-  $img.textContent = `alt=${selectedEvent.name} src=${selectedEvent.imageUrl}`; 
+  $img.setAttribute("alt", selectedEvent.name);
+  $img.setAttribute("src", selectedEvent.imageUrl); 
+  $date.textContent = selectedEvent.date;
+  $location.textContent = selectedEvent.location;
   $p.textContent = selectedEvent.description;
   $figure.append($img);
   $section.append($h3); 
   $section.append($figure); 
+  $section.append($date); 
+  $section.append($location);
   $section.append($p);
   return $section;
 }
